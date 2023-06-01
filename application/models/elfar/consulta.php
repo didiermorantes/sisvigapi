@@ -29,11 +29,12 @@ class Consulta extends CI_Model{
 
 
     
-    public function getDataId($cedula) {
+    public function getDataId($id_evento) {
 
         $select = "SELECT eno.id_un, eno.fecha_inic, eno.id_evento_padre, eno.id_grupo, eno.id_evento ";
         $from = "FROM BO_ENO eno ";
-        $where = "WHERE eno.id_un= '" . $cedula . "'";
+        // el id_un no necesita comillas porque es entero
+        $where = "WHERE eno.id_evento= '" . $id_evento . "'";
         // $sql = $select . $from . $where;
         //$sql = $select . $from;  
 

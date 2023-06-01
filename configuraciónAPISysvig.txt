@@ -99,6 +99,13 @@ ________________________________________________________________________________
 
 crear en la carpeta controllers un controlador de prueba para consultar base de datos
 
-http://localhost/sisvigapi/elfar/prueba/data
+El controlador llama al modelo
+El controlador llama a los métodos del modelo, y se decide si tiene o no parámetros
+
+El modelo realiza la consulta en la base de datos.  El modelo tiene distintos metodos para consultar la BD
+
+
+http://localhost/sisvigapi/elfar/prueba/casos/
+http://localhost/sisvigapi/elfar/prueba/caso/id/X22.6
 
 

@@ -75,17 +75,17 @@ class Prueba extends REST_Controller {
     }
 
     public function caso_get() {
-        $cedula = $this->get('id');
-        echo $cedula;
+        $id_evento = $this->get('id');
+      
 
-        if ($cedula === null) {
+        if ($id_evento === null) {
             $this->response([
                 'STATUS' => FALSE,
                 'MESSAGE' => 'Error en el URL'
                     ], REST_Controller::HTTP_NOT_FOUND); // NOT_FOUND (404) being the HTTP response code
         }
 
-        if ($cedula === "") {
+        if ($id_evento === "") {
             $this->response([
                 'STATUS' => FALSE,
                 'MESSAGE' => 'Cedula no ingresada'
@@ -93,7 +93,7 @@ class Prueba extends REST_Controller {
         } else {
 
 
-                    $dat = $this->Consulta->getDataId($cedula);
+                    $dat = $this->Consulta->getDataId($id_evento);
 
                     if ($dat) {
                         $this->response([
@@ -105,7 +105,7 @@ class Prueba extends REST_Controller {
                         $this->response([
                             'STATUS' => TRUE,
                             'MESSAGE' => 'datos no encontrados id_un',
-                            'id_un' => $cedula
+                            'id_un' => $id_evento
                                 ], REST_Controller::HTTP_NOT_FOUND); // NOT_FOUND (404) being the HTTP response code
                     }
 
