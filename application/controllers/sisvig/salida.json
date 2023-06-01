@@ -1,0 +1,16 @@
+{
+  "STATUS":true,
+  "MESSAGE":"Cedula encontrada",
+  "CEDULA":"2-724-817",
+  "COVID":{
+    "numero_identificacion":"2-724-817",
+    "Resultado":"DETECTADO",
+    "Fecha_prueba":"01\/02\/2022 00:00:00"
+    }
+}
+
+{
+  "STATUS":true,
+  "MESSAGE":"Cedula no encontrada",
+  "CEDULA":"2-724-817"
+}
