@@ -7,15 +7,161 @@ defined('BASEPATH') or exit('No direct script access allowed');
 require APPPATH . 'libraries/REST_Controller.php';
 require APPPATH . 'libraries/Format.php';
 
-class Influenza extends REST_Controller {
+class Prueba extends REST_Controller {
 
     function __construct() {
         // Construct the parent class
         parent::__construct();
-        $this->load->model('covid');
-        $this->load->model('notificacion/covid2');
+        $this->load->model('elfar/Consulta');
     }
 
+
+    public function casos_get() {
+
+        $dat = $this->Consulta->getData();
+
+        if ($dat) {
+            $this->response([
+                'STATUS' => TRUE,
+                'MESSAGE' => 'datos encontrados',
+                "DATA" => $dat
+                    ], REST_Controller::HTTP_OK); // OK (200) being the HTTP response code
+        } else {
+            $this->response([
+                'STATUS' => FALSE,
+                'MESSAGE' => 'datos no encontrados',
+                    ], REST_Controller::HTTP_NOT_FOUND); // NOT_FOUND (404) being the HTTP response code
+        }
+
+         
+
+         /*
+         $cedula = $this->get('id');
+        if ($cedula === null) {
+            $this->response([
+                'STATUS' => FALSE,
+                'MESSAGE' => 'Error en el URL. Falta parametro'
+                    ], REST_Controller::HTTP_NOT_FOUND); // NOT_FOUND (404) being the HTTP response code
+        }
+
+
+        if ($cedula === "") {
+            $this->response([
+                'STATUS' => FALSE,
+                'MESSAGE' => 'Cedula no ingresada. No deje campo vacio'
+                    ], REST_Controller::HTTP_NOT_FOUND); // NOT_FOUND (404) being the HTTP response code
+        } else {
+            $dat = $this->Consulta->getData($cedula);
+
+            if ($dat) {
+                $this->response([
+                    'STATUS' => TRUE,
+                    'MESSAGE' => 'datos encontrados',
+                    'CEDULA' => $cedula,
+                    "DATA" => $dat
+                        ], REST_Controller::HTTP_OK); // OK (200) being the HTTP response code
+            } else {
+                $this->response([
+                    'STATUS' => TRUE,
+                    'MESSAGE' => 'datos no encontrados',
+                    'CEDULA' => $cedula
+                        ], REST_Controller::HTTP_NOT_FOUND); // NOT_FOUND (404) being the HTTP response code
+            }
+        }
+
+
+        */
+
+    }
+
+    public function caso_get() {
+        $cedula = $this->get('id');
+        echo $cedula;
+
+        if ($cedula === null) {
+            $this->response([
+                'STATUS' => FALSE,
+                'MESSAGE' => 'Error en el URL'
+                    ], REST_Controller::HTTP_NOT_FOUND); // NOT_FOUND (404) being the HTTP response code
+        }
+
+        if ($cedula === "") {
+            $this->response([
+                'STATUS' => FALSE,
+                'MESSAGE' => 'Cedula no ingresada'
+                    ], REST_Controller::HTTP_NOT_FOUND); // NOT_FOUND (404) being the HTTP response code
+        } else {
+
+
+                    $dat = $this->Consulta->getDataId($cedula);
+
+                    if ($dat) {
+                        $this->response([
+                            'STATUS' => TRUE,
+                            'MESSAGE' => 'datos encontrados',
+                            "DATA" => $dat
+                                ], REST_Controller::HTTP_OK); // OK (200) being the HTTP response code
+                    } else {
+                        $this->response([
+                            'STATUS' => TRUE,
+                            'MESSAGE' => 'datos no encontrados id_un',
+                            'id_un' => $cedula
+                                ], REST_Controller::HTTP_NOT_FOUND); // NOT_FOUND (404) being the HTTP response code
+                    }
+
+    }
+
+         
+
+         /*
+         $cedula = $this->get('id');
+        if ($cedula === null) {
+            $this->response([
+                'STATUS' => FALSE,
+                'MESSAGE' => 'Error en el URL. Falta parametro'
+                    ], REST_Controller::HTTP_NOT_FOUND); // NOT_FOUND (404) being the HTTP response code
+        }
+
+
+        if ($cedula === "") {
+            $this->response([
+                'STATUS' => FALSE,
+                'MESSAGE' => 'Cedula no ingresada. No deje campo vacio'
+                    ], REST_Controller::HTTP_NOT_FOUND); // NOT_FOUND (404) being the HTTP response code
+        } else {
+            $dat = $this->Consulta->getData($cedula);
+
+            if ($dat) {
+                $this->response([
+                    'STATUS' => TRUE,
+                    'MESSAGE' => 'datos encontrados',
+                    'CEDULA' => $cedula,
+                    "DATA" => $dat
+                        ], REST_Controller::HTTP_OK); // OK (200) being the HTTP response code
+            } else {
+                $this->response([
+                    'STATUS' => TRUE,
+                    'MESSAGE' => 'datos no encontrados',
+                    'CEDULA' => $cedula
+                        ], REST_Controller::HTTP_NOT_FOUND); // NOT_FOUND (404) being the HTTP response code
+            }
+        }
+
+
+        */
+
+    }
+
+
+
+
+
+
+
+
+
+
+    /*
     public function casos_get() {
         $covid = $this->covid->getcasos();
         $detected = null;
@@ -116,5 +262,9 @@ class Influenza extends REST_Controller {
             }
         }
     }
+
+*/
+
+
 
 }

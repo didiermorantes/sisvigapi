@@ -78,6 +78,10 @@ modificar en application/config/database.php la conexión a la base de datos de 
     'password' => 'L4b0r4t0r101$',
     'database' => 'sysvig004',
 
+____________________________
+nueva base de datos
+'database' => 'sisvig_040',
+
 
 ____________________________________________________________________________________________________________
 https://sisvigplus.minsa.gob.pa/sisvigapi/sisvig/influenza/caso/8-742-2113
@@ -90,5 +94,11 @@ http://localhost/sisvigapi/pasiente/individuo/caso/8-742-2113
 
 http://localhost/sisvigapi/sisvig/Laboratorio_controller/caso/4-770-377
 
+
+______________________________________________________________________________________
+
+crear en la carpeta controllers un controlador de prueba para consultar base de datos
+
+http://localhost/sisvigapi/elfar/prueba/data
 
 
