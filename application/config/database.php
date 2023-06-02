@@ -95,3 +95,26 @@ $db['default'] = array(
     'failover' => array(),
     'save_queries' => TRUE
 );
+
+
+/* test connection: driver mysqli
+echo '<pre>';
+print_r($db['default']);
+echo '</pre>';
+
+echo 'Connecting to database: ' .$db['default']['database'];
+
+$mysqli_connection = new MySQLi($db['default']['hostname'],
+                                $db['default']['username'],
+                                $db['default']['password'], 
+                                $db['default']['database']);
+
+if ($mysqli_connection->connect_error) {
+   echo "Not connected, error: " . $mysqli_connection->connect_error;
+}
+else {
+   echo "Connected.";
+}
+die( 'file: ' .__FILE__ . ' Line: ' .__LINE__);
+
+*/

@@ -68,3 +68,9 @@ $route['sisvig/influenza/caso/([a-zA-Z0-9]+)'] = 'sisvig/influenza/caso'; // GET
 $route['covid19/influenza/casos'] = 'covid19/influenza/casos'; // GET ALL CASES
 //SERVICIO PARA PACIENTE
 $route['pasiente/individuo/caso/([a-zA-Z0-9]+)'] = 'pasiente/individuo/caso'; // GET BY CEDULA
+
+//SERVICIO PARA BO_ENO POR EVENTO PADRE
+$route['powerbi/bo_eno_controller/id_evento_padre/([a-zA-Z0-9]+)'] = 'powerbi/bo_eno_controller/id_evento_padre'; // GET BY id_evento_padre
+
+//SERVICIO PARA BO_ENO POR EVENTO FECHA INIC
+$route['powerbi/bo_eno_controller/fecha_inic/([a-zA-Z0-9]+)'] = 'powerbi/bo_eno_controller/fecha_inic'; // GET BY fecha_inic

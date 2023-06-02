@@ -986,7 +986,8 @@ abstract class REST_Controller extends \CI_Controller {
                 $method = $this->input->server('HTTP_X_HTTP_METHOD_OVERRIDE');
             }
 
-            $method = strtolower($method);
+            // $method = strtolower($method); -esta linea produce error con nuevas versiones de php
+            $method = strtolower($method ?? ''); // -este remplazo lo corrige
         }
 
         if (empty($method))
