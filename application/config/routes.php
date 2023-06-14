@@ -74,3 +74,15 @@ $route['powerbi/bo_eno_controller/id_evento_padre/([a-zA-Z0-9]+)'] = 'powerbi/bo
 
 //SERVICIO PARA BO_ENO POR EVENTO FECHA INIC
 $route['powerbi/bo_eno_controller/fecha_inic/([a-zA-Z0-9]+)'] = 'powerbi/bo_eno_controller/fecha_inic'; // GET BY fecha_inic
+
+//SERVICIO PARA BO_ENO POR EVENTO FECHA INIC
+$route['powerbi/view_bo_eno_controller/fecha_inic/([a-zA-Z0-9]+)'] = 'powerbi/view_bo_eno_controller/fecha_inic'; // GET BY fecha_inic
+
+//SERVICIO PARA BO_ENO POR EVENTO FECHA INIC
+$route['powerbi/view_bo_eno_controller/fecha_inic_download/([a-zA-Z0-9]+)'] = 'powerbi/view_bo_eno_controller/fecha_inic_download'; // GET BY fecha_inic
+
+//SERVICIO PARA BO_ENO POR EVENTO PADRE
+$route['powerbi/view_bo_eno_controller/id_evento_padre_download/([a-zA-Z0-9]+)'] = 'powerbi/view_bo_eno_controller/id_evento_padre_download'; // GET BY fecha_inic
+
+//SERVICIO PARA EL TOTAL DE LA VISTA
+$route['powerbi/view_bo_eno_controller/view_bo_eno_data_download'] = 'powerbi/view_bo_eno_controller/view_bo_eno_data_download'; // GET ALL CASES

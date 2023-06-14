@@ -1,0 +1,223 @@
+Errores de variables creadas dinámicamente en code igniter
+Solución leyendo: https://github.com/bcit-ci/CodeIgniter/issues/6192
+
+
+Definir variables al principio de cada clase afectada:
+
+ubeljan commented on Jan 19
+A few additions after asking a question to the database and showing the answer.
+
+I give you all my adjustments.
+The adjustments in /system/core/Controller.php are coming from my /config/autoload.php file.
+The section libraries and model have to be declared in /system/core/Controller.php
+I have them commented them.
+
+/system/core/URI.php
+
+class CI_URI {
+
+public $config;
+/system/core/Router.php
+
+class CI_Router {
+
+public $uri;
+/system/core/Loader.php
+
+class CI_Loader {
+
+public $load;
+public $benchmark;
+public $config;
+public $log;
+public $hooks;
+public $utf8;
+public $uri;
+public $router;
+public $exceptions;
+public $output;
+public $security;
+public $input;
+public $lang;  
+/system/core/Controller.php
+
+class CI_Controller {
+
+public $benchmark;    
+public $config;
+public $log;    
+public $hooks;  
+public $utf8;    
+public $uri;
+public $router;    
+public $exceptions;    
+public $output;    
+public $security;
+public $input;    
+public $lang;  
+// coming from autoload.php libraries and model
+public $db;      // libraries   
+public $email;   // libraries
+public $WorldM;  // model      
+/system/core/DB_driver.php
+
+abstract class CI_DB_driver {
+
+public $failover; 
+Greetings,
+Ubel Jan
+
+
+_________________________________________________________________________________________________________________
+
+modificar en application/config/database.php la conexión a la base de datos de prueba
+
+
+    'hostname' => 'whm.mirrorhetiava.com',
+    'username' => 'usuario4',
+    'password' => 'L4b0r4t0r101$',
+    'database' => 'sysvig004',
+
+____________________________
+nueva base de datos
+'database' => 'sisvig_040',
+
+
+____________________________________________________________________________________________________________
+
+Endpoints actualmente funcionales
+
+https://sisvigplus.minsa.gob.pa/sisvigapi/sisvig/influenza/caso/8-742-2113
+https://sisvigplus.minsa.gob.pa/sisvigapi/covid19/influenza/caso/8-742-2113
+https://sisvigplus.minsa.gob.pa/sisvigapi/pasiente/individuo/caso/8-742-2113
+
+
+http://localhost/sisvigapi/pasiente/individuo/caso/8-742-2113
+
+
+http://localhost/sisvigapi/sisvig/Laboratorio_controller/caso/4-770-377
+
+
+______________________________________________________________________________________
+
+crear en la carpeta controllers un controlador de prueba para consultar base de datos
+
+El controlador llama al modelo
+El controlador llama a los métodos del modelo, y se decide si tiene o no parámetros
+
+El modelo realiza la consulta en la base de datos.  El modelo tiene distintos metodos para consultar la BD
+Los métodos del modelo pueden retornar solo un resultado
+
+        if ($query->num_rows() > 0) {
+            return $query->row() ;
+        }
+
+Los métodos del modelo pueden retornar un conjunto de resultados
+
+
+configurar el router para decidir las rutas de consumo que apuntan al controller
+application->config->routes.php 
+
+Finalmente las rutas son las que se invocan desde la url
+
+Se crean endpoints en las rutas, y finalizando con la palabra get en el controlador, se invocan las funciones. En la ruta va sin la palabra get, y en el controlador el método tiene la palabra get. Ejemplo:
+
+powerbi/view_bo_eno_controller/fecha_inic_download
+function fecha_inic_download_get()
+
+
+
+
+se puede decidir que la ruta reciba parámetros
+
+
+endpoints de pruebas exitosos
+http://localhost/sisvigapi/elfar/prueba/casos/
+http://localhost/sisvigapi/elfar/prueba/caso/id/X22.6
+
+endpoints que consumen datos reales de la base de datos en la tabla BO_ENO
+http://localhost/sisvigapi/powerbi/bo_eno_controller/id_evento_padre/id/INFECCIONES RESPIRATORIAS
+http://localhost/sisvigapi/powerbi/bo_eno_controller/fecha_inic/fecha/2018-10-14
+http://localhost/sisvigapi/powerbi/bo_eno_controller/fecha_inic/fecha/0
+--------------------------------------------
+NUEVO ENDPOINT CREADO
+http://localhost/sisvigapi/powerbi/view_bo_eno_controller/fecha_inic/fecha/2018-10-14
+
+http://localhost/sisvigapi/powerbi/view_bo_eno_controller/fecha_inic_download/fecha/2018-10-14
+
+http://localhost/sisvigapi/powerbi/view_bo_eno_controller/id_evento_padre_download/id/INFECCIONES RESPIRATORIAS
+
+http://localhost/sisvigapi/powerbi/view_bo_eno_controller/view_bo_eno_data_download
+
+-----------------------------------
+
+____________________________________________________________________________
+
+Cuando se pase a servidor real modificar
+
+application->config->config.php
+$config['base_url'] = 'http://localhost/sisvigapi/';
+por
+$config['base_url'] = 'https://didiermorantes.com/sisvigapi/';
+
+
+_________________________________________________________________________
+
+
+PARA DEPURAR LA CONEXION A LA BASE DE DATOS 
+ingresar el siguiente código en application/config/database.php
+
+
+/* Connection test: driver mysql 
+  echo '<pre>';
+  print_r($db['default']);
+  echo '</pre>';
+
+  echo 'Connecting to database: ' .$db['default']['database'];
+  $dbh=mysql_connect
+  (
+    $db['default']['hostname'],
+    $db['default']['username'],
+    $db['default']['password'])
+    or die('Cannot connect to the database because: ' . mysql_error());
+    mysql_select_db ($db['default']['database']);
+
+    echo '<br />   Connected OK:'  ;
+    die( 'file: ' .__FILE__ . ' Line: ' .__LINE__); 
+    
+ */
+
+
+
+
+
+
+/* Connection test: driver mysqli */
+
+echo '<pre>';
+print_r($db['default']);
+echo '</pre>';
+
+echo 'Connecting to database: ' .$db['default']['database'];
+
+$mysqli_connection = new MySQLi($db['default']['hostname'],
+                                $db['default']['username'],
+                                $db['default']['password'], 
+                                $db['default']['database']);
+
+if ($mysqli_connection->connect_error) {
+   echo "Not connected, error: " . $mysqli_connection->connect_error;
+}
+else {
+   echo "Connected.";
+}
+die( 'file: ' .__FILE__ . ' Line: ' .__LINE__);
+
+
+
+______________________________________________________
+
+
+se corrige en Rest_Controller linea 989 para poder entregar un json limpio
+            // $method = strtolower($method); -esta linea produce error con nuevas versiones de php
+            $method = strtolower($method ?? ''); // -este remplazo lo corrige
