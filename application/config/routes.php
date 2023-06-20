@@ -81,8 +81,19 @@ $route['powerbi/view_bo_eno_controller/fecha_inic/([a-zA-Z0-9]+)'] = 'powerbi/vi
 //SERVICIO PARA BO_ENO POR EVENTO FECHA INIC
 $route['powerbi/view_bo_eno_controller/fecha_inic_download/([a-zA-Z0-9]+)'] = 'powerbi/view_bo_eno_controller/fecha_inic_download'; // GET BY fecha_inic
 
+//SERVICIO PARA BO_ENO(colectiva) POR FILTRO ANIO MES
+$route['powerbi/view_bo_eno_controller/fecha_inic_anio_mes/([a-zA-Z0-9]+)'] = 'powerbi/view_bo_eno_controller/fecha_inic_anio_mes'; // GET BY fecha_inic_anio_mes
+
+
 //SERVICIO PARA BO_ENO POR EVENTO PADRE
 $route['powerbi/view_bo_eno_controller/id_evento_padre_download/([a-zA-Z0-9]+)'] = 'powerbi/view_bo_eno_controller/id_evento_padre_download'; // GET BY fecha_inic
 
 //SERVICIO PARA EL TOTAL DE LA VISTA
 $route['powerbi/view_bo_eno_controller/view_bo_eno_data_download'] = 'powerbi/view_bo_eno_controller/view_bo_eno_data_download'; // GET ALL CASES
+
+
+//SERVICIO PARA BO_ENO , BO_NOTICFOR, BO_VIGMOR(colectiva, individual, mortalidad) POR FILTRO ANIO MES CON CONTROLADOR GENERAL
+$route['powerbi/general_controller/fecha_inic_anio_mes/([a-zA-Z0-9]+)'] = 'powerbi/general_controller/fecha_inic_anio_mes'; // GET BY fecha_inic_anio_mes
+
+//SERVICIO PARA BO_ENO , BO_NOTICFOR, BO_VIGMOR(colectiva, individual, mortalidad)  POR EVENTO PADRE
+$route['powerbi/general_controller/id_evento_padre_tipo/([a-zA-Z0-9]+)'] = 'powerbi/general_controller/id_evento_padre_tipo'; // GET BY id_evento_padre

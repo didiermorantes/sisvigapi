@@ -181,6 +181,60 @@ class VIEW_BO_ENO_model extends CI_Model{
     }
 
 
+    public function getData_VIEW_BO_ENO_fechaInic_anio_mes($anio, $mes) {
+        /*
+                echo '<pre>';
+                print_r($fecha_inic);
+                echo '</pre>';
+        
+        */
+
+        // consulta por mes y por año
+        // SELECT * FROM tabla WHERE MONTH(colfecha) = 10 AND YEAR(colfecha) = 2016
+        
+                // SELECT view_eno.id_un, view_eno.fecha_inic, view_eno.id_evento_padre, view_eno.id_grupo, view_eno.id_rango, view_eno.`COUNT(numero_casos)` FROM VIEW_BO_ENO view_eno WHERE MONTH(view_eno.fecha_inic)= 2 AND YEAR(view_eno.fecha_inic)= 2018;
+                // ojo con el espacio al final en cada cadena. Como es concatenación SE NECESITAN DICHOS ESPACIOS
+                // ojo con los nombres de alias que tengan el mismo nombre que la funcion COUNT, hay que usar backticks
+                $select = "SELECT view_eno.id_un, view_eno.fecha_inic, view_eno.id_evento_padre, view_eno.id_grupo, view_eno.id_rango, view_eno.`COUNT(numero_casos)` ";
+                $from = "FROM VIEW_BO_ENO view_eno ";
+                // el id_evento_padre necesita comillas porque es string
+                $where = "WHERE MONTH(view_eno.fecha_inic)= '" . $mes . "' AND YEAR(view_eno.fecha_inic)= '" .$anio. "' ";
+                // $sql = $select . $from . $where;
+                //$sql = $select . $from;  
+        
+                $sql = $select . $from . $where;   
+                $cadena  = '';
+        
+        
+                $query = $this->db->query($sql);
+        
+                if ($query->num_rows() > 0) {
+        
+                foreach ($query->result() as $row) {
+                    $view_bo_eno_data[] = [
+                        'id_un' => $row->id_un,
+                        'fecha_inic' => $row->fecha_inic,
+                        'id_evento_padre' => $row->id_evento_padre,
+                        'id_grupo' => $row->id_grupo,
+                        'id_rango' => $row->id_rango,
+                        // Es necesario utilizar la notación de llaves porque el nombre de la propiedad es compuesto y posee nombres de funcions
+                        'COUNT(numero_casos)' => $row->{'COUNT(numero_casos)'}
+        
+                    ];
+                }
+        
+                
+                    // return $query->row() ;
+                    // return $cadena;
+                    //return 'EXITO';
+                return $view_bo_eno_data;
+        
+                } else {
+                    return false ;
+                }
+            }
+
+
     public function getAllDataVIEW_BO_ENO() {
         /*
                 echo '<pre>';
