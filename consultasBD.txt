@@ -1,0 +1,23 @@
+SELECT view_eno.id_un, view_eno.fecha_inic, view_eno.id_evento_padre, view_eno.id_grupo, view_eno.id_rango, view_eno.`COUNT(numero_casos)` FROM VIEW_BO_ENO view_eno WHERE MONTH(view_eno.fecha_inic)= 2 AND YEAR(view_eno.fecha_inic)= 2018;
+
+
+SELECT view_ind.id_grupo, view_ind.id_evento_padre, view_ind.tipo_caso_calculado, view_ind.sexo, view_ind.id_rango, view_ind.id_un, view_ind.fecha_calculada, view_ind.id_corregimiento_calculado, view_ind.`COUNT(numero_casos)` FROM VIEW_BO_NOTICFORM view_ind WHERE MONTH(view_ind.fecha_calculada)= 2 AND YEAR(view_ind.fecha_calculada)= 2018;
+
+
+SELECT view_mor.id_grupo, view_mor.id_evento_padre, view_mor.tipo_caso_calculado, view_mor.sexo, view_mor.id_rango, view_mor.id_un, view_mor.fecha_defuncion, view_mor.id_corregimiento_calculado, view_mor.`COUNT(numero_casos)` FROM VIEW_BO_VIGMOR view_mor WHERE MONTH(view_mor.fecha_defuncion)= 2 AND YEAR(view_mor.fecha_defuncion)= 2023;
+
+
+SELECT DISTINCT id_evento_padre FROM VIEW_BO_ENO;
+
+EFECTOS TÓXICOS Y OTRAS CAUSAS EXTERNAS DE ENVENENAMIENTO
+ENFERMEDADES INFLAMATORIAS DEL SISTEMA NERVIOSO CENTRAL
+ENFERMEDADES PREVENIBLES POR VACUNA
+ENFERMEDADES TRANSMITIDAS POR ALIMIENTOS
+ENFERMEDADES TRANSMITIDAS POR VECTORES
+HELMINTIASIS
+IAAS
+INFECCIONES DE TRANSMISIÓN SEXUAL
+INFECCIONES RESPIRATORIAS
+MUERTE INFANTIL
+OTRAS CAUSAS DE TRAUMATISMO
+OTROS EVENTOS

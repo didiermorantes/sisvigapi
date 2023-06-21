@@ -152,6 +152,9 @@ http://localhost/sisvigapi/powerbi/view_bo_eno_controller/view_bo_eno_data_downl
 
 http://localhost/sisvigapi/powerbi/view_bo_eno_controller/fecha_inic_anio_mes/fecha/COL-2018-02
 
+
+// RUTAS EN PRODUCCION NO DEBEN TENER GUIONES BAJOS NI MAYUSCULAS, PORQUE NO ENCUENTRA LOS RECURSOS
+// SE CAMBIAN LOS NOMBRES DE LAS RUTAS Y LAS CLASES
 http://localhost/sisvigapi/powerbi/general_controller/fecha_inic_anio_mes/fecha/COL-2018-02
 http://localhost/sisvigapi/powerbi/general_controller/fecha_inic_anio_mes/fecha/IND-2018-02
 http://localhost/sisvigapi/powerbi/general_controller/fecha_inic_anio_mes/fecha/MOR-2023-02
@@ -160,6 +163,28 @@ http://localhost/sisvigapi/powerbi/general_controller/id_evento_padre_tipo/id/IN
 http://localhost/sisvigapi/powerbi/general_controller/id_evento_padre_tipo/id/MOR-2
 
 -----------------------------------
+
+//NUEVAS RUTAS QUE SI FUNCIONAN EN PRODUCCION
+http://localhost/sisvigapi/powerbi/generalcontroller/fecha_inic_anio_mes/fecha/COL-2018-02
+http://localhost/sisvigapi/powerbi/generalcontroller/fecha_inic_anio_mes/fecha/IND-2018-02
+http://localhost/sisvigapi/powerbi/generalcontroller/fecha_inic_anio_mes/fecha/MOR-2023-02
+http://localhost/sisvigapi/powerbi/generalcontroller/id_evento_padre_tipo/id/COL-14
+http://localhost/sisvigapi/powerbi/generalcontroller/id_evento_padre_tipo/id/IND-12
+http://localhost/sisvigapi/powerbi/generalcontroller/id_evento_padre_tipo/id/MOR-2
+
+// ENDPOINTS MONTADOS EN HETIAVA DESPUES DE CAMBIAR LOS NOMBRES DE LOS ARCHIVOS SIN MAYUSCULAS Y GUIONES BAJOS Y RUTAS SIN GUIONES BAJOS
+
+https://mirrorhetiava.com/sisvigapi/powerbi/generalcontroller/fecha_inic_anio_mes/fecha/COL-2018-02
+https://mirrorhetiava.com/sisvigapi/powerbi/generalcontroller/fecha_inic_anio_mes/fecha/IND-2018-02
+https://mirrorhetiava.com/sisvigapi/powerbi/generalcontroller/fecha_inic_anio_mes/fecha/MOR-2023-02
+https://mirrorhetiava.com/sisvigapi/powerbi/generalcontroller/id_evento_padre_tipo/id/COL-14
+https://mirrorhetiava.com/sisvigapi/powerbi/generalcontroller/id_evento_padre_tipo/id/IND-12
+https://mirrorhetiava.com/sisvigapi/powerbi/generalcontroller/id_evento_padre_tipo/id/MOR-2
+
+-----------------------------------
+
+http://localhost/sisvigapi/Usuarios/saludar
+http://localhost/sisvigapi/prueba/usuarios2/saludar/dato/elfar
 
 ____________________________________________________________________________
 

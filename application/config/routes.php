@@ -93,7 +93,13 @@ $route['powerbi/view_bo_eno_controller/view_bo_eno_data_download'] = 'powerbi/vi
 
 
 //SERVICIO PARA BO_ENO , BO_NOTICFOR, BO_VIGMOR(colectiva, individual, mortalidad) POR FILTRO ANIO MES CON CONTROLADOR GENERAL
-$route['powerbi/general_controller/fecha_inic_anio_mes/([a-zA-Z0-9]+)'] = 'powerbi/general_controller/fecha_inic_anio_mes'; // GET BY fecha_inic_anio_mes
+// NO USAR GUIONES BAJOS PARA RUTAS DE PRODUCCION EN LOS NOMBRES DE LAS CLASES. LOS METODOS SI PUEDEN TENER GUIONES BAJOS
+$route['powerbi/generalcontroller/fecha_inic_anio_mes/([a-zA-Z0-9]+)'] = 'powerbi/generalcontroller/fecha_inic_anio_mes'; // GET BY fecha_inic_anio_mes
 
 //SERVICIO PARA BO_ENO , BO_NOTICFOR, BO_VIGMOR(colectiva, individual, mortalidad)  POR EVENTO PADRE
-$route['powerbi/general_controller/id_evento_padre_tipo/([a-zA-Z0-9]+)'] = 'powerbi/general_controller/id_evento_padre_tipo'; // GET BY id_evento_padre
+// NO USAR GUIONES BAJOS PARA RUTAS DE PRODUCCION EN LOS NOMBRES DE LAS CLASES. LOS METODOS SI PUEDEN TENER GUIONES BAJOS
+$route['powerbi/generalcontroller/id_evento_padre_tipo/([a-zA-Z0-9]+)'] = 'powerbi/generalcontroller/id_evento_padre_tipo'; // GET BY id_evento_padre
+
+$route['prueba/usuarios2/saludar/([a-zA-Z0-9]+)'] = 'prueba/usuarios2/saludar'; 
+
+?>

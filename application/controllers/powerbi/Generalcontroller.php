@@ -7,19 +7,20 @@ defined('BASEPATH') or exit('No direct script access allowed');
 require APPPATH . 'libraries/REST_Controller.php';
 require APPPATH . 'libraries/Format.php';
 
-class GENERAL_controller extends REST_Controller {
+// NO USAR GUIONES BAJOS PARA RUTAS DE PRODUCCION EN LOS NOMBRES DE LAS CLASES, NI MAYUSCULAS. LOS METODOS SI PUEDEN TENER GUIONES BAJOS
+class Generalcontroller extends REST_Controller {
     // para suprimir errores de php
     public $db;
     public $format;
     public $auth_override;
-    public $GENERAL_model;
+    public $Generalmodel;
     // para suprimir errores de php
 
 
     function __construct() {
         // Construct the parent class
         parent::__construct();
-        $this->load->model('powerbi/GENERAL_model');
+        $this->load->model('powerbi/Generalmodel');
     }
 
 
@@ -391,7 +392,7 @@ class GENERAL_controller extends REST_Controller {
 
                         if($tipo == 'COL'){
                             // NOTIFICACION COLECTIVA, HACIA LA VISTA VIEW_BO_ENO
-                            $dat = $this->GENERAL_model->getData_VIEW_BO_ENO_fechaInic_anio_mes($anio, $mes);
+                            $dat = $this->Generalmodel->getData_VIEW_BO_ENO_fechaInic_anio_mes($anio, $mes);
                         
 
                             if ($dat) {
@@ -415,7 +416,7 @@ class GENERAL_controller extends REST_Controller {
                         }
                         else if($tipo == 'IND'){
                             // NOTIFICACION INDIVIDUAL, HACIA LA VISTA VIEW_BO_NOTIC_FORM
-                            $dat = $this->GENERAL_model->getData_VIEW_BO_NOTICFORM_fechaInic_anio_mes($anio, $mes);
+                            $dat = $this->Generalmodel->getData_VIEW_BO_NOTICFORM_fechaInic_anio_mes($anio, $mes);
                         
 
                             if ($dat) {
@@ -438,7 +439,7 @@ class GENERAL_controller extends REST_Controller {
                         }
                         else if($tipo == 'MOR'){
                             // NOTIFICACION MORTALIDAD, HACIA LA VISTA VIEW_BO_VIGMOR
-                            $dat = $this->GENERAL_model->getData_VIEW_BO_VIGMOR_fechaInic_anio_mes($anio, $mes);
+                            $dat = $this->Generalmodel->getData_VIEW_BO_VIGMOR_fechaInic_anio_mes($anio, $mes);
                         
 
                             if ($dat) {
@@ -602,7 +603,7 @@ class GENERAL_controller extends REST_Controller {
             if($tipo =='COL'){
 
 
-                $dat = $this->GENERAL_model->getDataIdEventoPadre_VIEW_BO_ENO($nombre_evento_padre);
+                $dat = $this->Generalmodel->getDataIdEventoPadre_VIEW_BO_ENO($nombre_evento_padre);
 
                 if ($dat) {
                     $this->response([
@@ -624,7 +625,7 @@ class GENERAL_controller extends REST_Controller {
             }
             else if($tipo =='IND'){
 
-                $dat = $this->GENERAL_model->getDataIdEventoPadre_VIEW_BO_NOTICFORM($nombre_evento_padre);
+                $dat = $this->Generalmodel->getDataIdEventoPadre_VIEW_BO_NOTICFORM($nombre_evento_padre);
 
                 if ($dat) {
                     $this->response([
@@ -646,7 +647,7 @@ class GENERAL_controller extends REST_Controller {
             }
             else if($tipo =='MOR'){
                 
-                $dat = $this->GENERAL_model->getDataIdEventoPadre_VIEW_BO_VIGMOR($nombre_evento_padre);
+                $dat = $this->Generalmodel->getDataIdEventoPadre_VIEW_BO_VIGMOR($nombre_evento_padre);
 
                 if ($dat) {
                     $this->response([
@@ -692,3 +693,5 @@ class GENERAL_controller extends REST_Controller {
 
 
 }
+
+?>

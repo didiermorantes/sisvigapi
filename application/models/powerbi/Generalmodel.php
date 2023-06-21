@@ -2,7 +2,8 @@
 
 defined('BASEPATH') or exit('No direct script access allowed') ;
 
-class GENERAL_model extends CI_Model{
+// NO USAR GUIONES BAJOS PARA RUTAS DE PRODUCCION EN LOS NOMBRES DE LAS CLASES, NI MAYUSCULAS. LOS METODOS SI PUEDEN TENER GUIONES BAJOS
+class Generalmodel extends CI_Model{
 
     
 
@@ -582,3 +583,4 @@ public function getDataIdEventoPadre_VIEW_BO_VIGMOR($id_evento_padre) {
 
 }
 
+?>
