@@ -24,6 +24,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 |
 */
 #$config['base_url'] = 'https://sisvigplus.minsa.gob.pa/sisvigapi/';
+// HAY QUE MODIFICAR .htaccess PARA QUE COINCIDA CON ESTA RUTA O NO FUNCIONARA NI EN LOCAL NI EN SERVIDOR
 $config['base_url'] = 'http://localhost/sisvigapi/';
 
 /*
